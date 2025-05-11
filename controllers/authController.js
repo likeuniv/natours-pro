@@ -24,7 +24,7 @@ const createAndSendToken = (user, statusCode, req, res) => {
          Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000,
       ),
       httpOnly: true,
-      secure: req.secure || req.headers('x-forwarded-proto') === 'https',
+      secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
    };
    //if (process.env.NODE_ENV === 'production') cookieOptions.secure = true; //only works with https request
    //cookieOptions.secure = req.secure || req.headers('x-forwarded-proto') === 'https';
